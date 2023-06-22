@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #5b5d60;
+  align-items: center;
+  height: 60px;
+  div {
+    background-color: #5b5d60;
+  }
+  a {
+    background-color: #5b5d60;
+    margin: 2rem;
+  }
+}
+
+.footer {
+  background-color: #5b5d60;
+  height: 30px;
+  a {
+    background-color: #5b5d60;
+  }
+}
+
+.copyright {
+  background-color: #5b5d60;
+  height: 30px;
+}
