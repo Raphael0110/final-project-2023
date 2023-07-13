@@ -42,7 +42,7 @@ export async function POST(
   }
 
   // 4. store the credentials in the db
-  const newphoto = await createfotos(result.data.imageData, userid);
+  const newphoto = await createfotos(result.data.imageData, result.data.userid);
 
   if (!newphoto) {
     // zod send you details about the error
