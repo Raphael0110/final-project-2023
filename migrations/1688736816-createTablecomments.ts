@@ -1,23 +1,26 @@
 import { Sql } from 'postgres';
 
-export type User = {
-  name: string;
+export type Comment = {
   id: number;
-  username: string;
+  content: string;
+  userId: number | null;
+
+  blob: string;
 };
 
 export async function up(sql: Sql) {
   await sql`
-    CREATE TABLE users (
+    CREATE TABLE comments (
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-      username varchar(80) NOT NULL UNIQUE,
-      password_hash varchar(80) NOT NULL
+      content varchar(255) NOT NULL,
+      user_id integer
+
     )
   `;
 }
 
 export async function down(sql: Sql) {
   await sql`
-    DROP TABLE users
+    DROP TABLE comments
   `;
 }

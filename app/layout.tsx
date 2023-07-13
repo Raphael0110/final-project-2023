@@ -35,6 +35,7 @@ export default async function RootLayout({ children }: Props) {
             <Link href="http://localhost:3000/knights">Knights</Link>
             <Link href="http://localhost:3000/samurai">Samurai</Link>
             <Link href="http://localhost:3000/vikings">Vikings</Link>
+            <Link href="http://localhost:3000/customise">Customise</Link>
           </div>
           <div>
             {user ? (

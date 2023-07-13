@@ -28,13 +28,9 @@ export async function POST(
 ): Promise<NextResponse<LoginResponseBodyPost>> {
   const body = await request.json();
 
-  // 1. get the credentials from the body
   const result = userSchema.safeParse(body);
 
-  // 2. verify the user data and check that the name is not taken
   if (!result.success) {
-    // zod send you details about the error
-    // console.log(result.error);
     return NextResponse.json(
       {
         error: 'username or password missing',

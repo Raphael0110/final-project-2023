@@ -9,7 +9,7 @@ const sql = postgres(
 
 console.log(
   await sql`
-    SELECT * FROM springseeds;
+    SELECT * FROM heros;
   `,
 );
 

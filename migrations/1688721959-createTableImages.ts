@@ -1,23 +1,23 @@
 import { Sql } from 'postgres';
 
-export type User = {
-  name: string;
+export type Fotosidk = {
   id: number;
-  username: string;
+  imageData: string;
+  userId: number | null;
 };
 
 export async function up(sql: Sql) {
   await sql`
-    CREATE TABLE users (
+    CREATE TABLE fotos (
       id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-      username varchar(80) NOT NULL UNIQUE,
-      password_hash varchar(80) NOT NULL
+      imageData varchar(255),
+      userId integer REFERENCES users(id) ON DELETE CASCADE
     )
   `;
 }
 
 export async function down(sql: Sql) {
   await sql`
-    DROP TABLE users
+    DROP TABLE fotos
   `;
 }

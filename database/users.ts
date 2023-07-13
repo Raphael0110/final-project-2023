@@ -4,6 +4,7 @@ import { sql } from './connect';
 
 type UserWithPasswordHash = User & {
   passwordHash: string;
+  userid: number;
 };
 
 export const getUserWithPasswordHashByUsername = cache(
@@ -65,5 +66,32 @@ export const getUserBySessionToken = cache(async (token: string) => {
     )
   `;
 
+  return user;
+});
+
+export const updateUserById = cache(
+  async (id: number, username: string, imageUrl: string) => {
+    const [user] = await sql<UserWithPasswordHash[]>`
+      UPDATE users
+      SET
+        username = ${username.toLowerCase()},
+        image_url = ${imageUrl}
+      WHERE
+        id = ${id}
+        RETURNING *
+    `;
+    return user;
+  },
+);
+
+export const getUserById = cache(async (id: number) => {
+  const [user] = await sql<UserWithPasswordHash[]>`
+    SELECT
+      *
+    FROM
+      users
+    WHERE
+      id = ${id}
+  `;
   return user;
 });

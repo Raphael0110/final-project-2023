@@ -6,14 +6,14 @@ export const heros = [
     name: 'Warden',
     class: 'Knight',
     description: 'test',
-    url: 'https://res.cloudinary.com/di8agpaq6/image/upload/v1687342367/Warden_v9lsdf.png',
+    url: 'https://res.cloudinary.com/di8agpaq6/image/upload/v1689233898/Knights/Warden_original_pbpdrq.png',
   },
   {
     id: 2,
     name: 'conq',
     class: 'Knight',
     description: 'testoida',
-    url: 'https://res.cloudinary.com/di8agpaq6/image/upload/v1687342367/Warden_v9lsdf.png',
+    url: 'https://res.cloudinary.com/di8agpaq6/image/upload/v1689233947/Knights/Conqeror_xbfdij.png',
   },
 ];
 

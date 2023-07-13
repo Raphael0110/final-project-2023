@@ -1,6 +1,7 @@
 import { Sql } from 'postgres';
 
 export type Heromigration = {
+  photos: any;
   id: number;
   name: string;
   class: string;
