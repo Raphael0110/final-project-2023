@@ -40,8 +40,15 @@ export default async function RootLayout({ children }: Props) {
           <div>
             {user ? (
               <>
-                <Link href="/">register</Link>
                 <LogoutButton />
+                <Link href={`http://localhost:3000/profile/${user.username}`}>
+                  Profile
+                </Link>
+                <Link
+                  href={`http://localhost:3000/uploadfotos/${user.username}`}
+                >
+                  upload
+                </Link>
               </>
             ) : (
               <>
@@ -60,6 +67,7 @@ export default async function RootLayout({ children }: Props) {
             <Link href="/">Terms&Conditions</Link>
             <Link href="/">Our Services</Link>
           </div>
+
           <div className={styles.copyright}>
             Dunmaglass Copyright © 2023 Dunmaglass - All rights reserved ||
             Designed By: Raphael

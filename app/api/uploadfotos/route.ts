@@ -14,8 +14,8 @@ export type RegisterResponseBodyPost =
   | Error;
 
 const photoSchema = z.object({
-  imageData: z.string(),
-  userid: z.string(),
+  url: z.string(),
+  username: z.string(),
 });
 
 export async function POST(
@@ -24,15 +24,11 @@ export async function POST(
   const body = await request.json();
 
   console.log('body', body);
-  console.log(typeof body.userid);
+  console.log(typeof body.username);
 
-  // 1. get the credentials from the body
   const result = photoSchema.safeParse(body);
 
-  // 2. verify the user data and check that the name is not taken
   if (!result.success) {
-    // zod send you details about the error
-    // console.log(result.error);
     return NextResponse.json(
       {
         error: 'username or password missing',
@@ -40,13 +36,9 @@ export async function POST(
       { status: 400 },
     );
   }
-
-  // 4. store the credentials in the db
-  const newphoto = await createfotos(result.data.imageData, result.data.userid);
+  const newphoto = await createfotos(result.data.url, result.data.username);
 
   if (!newphoto) {
-    // zod send you details about the error
-    // console.log(result.error);
     return NextResponse.json(
       {
         error: 'Error creating the new user',

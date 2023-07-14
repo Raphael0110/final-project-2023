@@ -10,8 +10,7 @@ export const getfotos = cache(async () => {
 });
 
 export const getfotosById = cache(async (id: number) => {
-  console.log(typeof id);
-  const [fotosid] = await sql<Fotosidk[]>`
+  const [fotos] = await sql<Fotosidk[]>`
 SELECT
 *
  FROM
@@ -19,19 +18,30 @@ SELECT
  WHERE id =${id}
 
 `;
-  return fotosid;
+  return fotos;
 });
 
-export const createfotos = cache(async (imageData: string, userId: number) => {
+export const createfotos = cache(async (url: string, username: string) => {
   const [fotos] = await sql<Fotosidk[]>`
     INSERT INTO fotos
-      (imageData, userId)
+      (url, username)
     VALUES
-      (${imageData},${userId})
+      (${url},${username})
     RETURNING
       id,
-      imageData ,userId
+      url ,username
  `;
 
   return fotos;
 });
+
+export async function getFotosByUsername(username: string) {
+  const fotos = await sql<Fotosidk[]>`
+    SELECT
+   *
+    FROM fotos
+    WHERE username = ${username}
+  `;
+
+  return fotos;
+}

@@ -1,17 +1,17 @@
 import { notFound } from 'next/navigation';
-import { getUserById } from '../../../database/users';
+import { getUserByUsername } from '../../../database/users';
 import Uplodeform from './from';
 
 type Props = {
-  params: { userid: number };
+  params: { username: string };
 };
 
 export default async function UplodePage({ params }: Props) {
-  const user = await getUserById(params.userid);
+  const user = await getUserByUsername(params.username);
 
   if (!user) {
     notFound();
   }
 
-  return <Uplodeform userid={params.userid} />;
+  return <Uplodeform username={params.username} />;
 }

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getherosById } from '../../../database/heros/heros';
-import styles from '../knights.module.scss';
+import styles from './knightsid.module.scss';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,13 +22,30 @@ export default async function heropage(props: Props) {
   }
   return (
     <div className={styles.background}>
-      <div>{singlehero.name}</div>
       <div>
-        <img src={singlehero.url} alt={singlehero.name} />
+        <h1 className={styles.textbackground}>{singlehero.name}</h1>
+        <div className={styles.im}>
+          <img
+            src={singlehero.url}
+            alt={singlehero.name}
+            height={400}
+            width={400}
+          />
+        </div>
       </div>
-      <section className={styles.background2}>
-        <Link href="http://localhost:3000/customise">customise </Link>
-      </section>
+      <div className={styles.textbackground2}>
+        <h2>Description:</h2>
+        <br />
+        <br />
+        {singlehero.description}
+        <section className={styles.background2}>
+          <br />
+          <br />
+          <Link href="http://localhost:3000/customise" className={styles.link}>
+            customise{' '}
+          </Link>
+        </section>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  align-items: center;
+  background-color: #2a2b2f;
+  border-radius: 70px;
+  padding: 40px;
+  margin: 40px;
+  justify-content: space-around;
+}
+
+.photo {
+  margin-right: 10px;
+}
+
+.headOption {
+  background-color: #2a2b2f;
+}
+
+.bodyOption {
+  background-color: #2a2b2f;
+}
+
+.feetOption {
+  background-color: #2a2b2f;
+}
+
+.buttonhead {
+  background-color: #2a2b2f;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    margin-right: 10px;
+    background-color: #a99159;
+    border-radius: 20px;
+    padding: 8px;
+  }
+}
+
+.allbuttons {
+  background-color: #2a2b2f;
+}
+
+.buttonbody {
+  background-color: #2a2b2f;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    margin-right: 10px;
+    background-color: #a99159;
+    border-radius: 20px;
+    padding: 8px;
+  }
+}
+
+.buttonfeet {
+  background-color: #2a2b2f;
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    margin-right: 10px;
+    background-color: #a99159;
+    border-radius: 20px;
+    padding: 8px;
+  }
+}

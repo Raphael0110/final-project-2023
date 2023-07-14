@@ -1,5 +1,5 @@
-import PhotoComponent from './from';
+import Uplodeform from './from';
 
-export default function Testpage() {
-  return <PhotoComponent />;
+export default function Warden() {
+  return <Uplodeform />;
 }

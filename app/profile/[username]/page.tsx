@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
-// import { getCommentsWithUserInfo } from '../../../database/comments';
+import { getFotosByUsername } from '../../../database/fotos';
 import { getUserByUsername } from '../../../database/users';
-import AddComments from '../../samurai/form';
 
 type Props = {
   params: { username: string };
@@ -13,17 +12,24 @@ export default async function ProfileUsernamePage({ params }: Props) {
   if (!user) {
     notFound();
   }
-  // const userComments = await getCommentsWithUserInfo(user.id);
 
+  const fotos = await getFotosByUsername(params.username);
+  if (!fotos) {
+    notFound();
+  }
+  console.log('hello worls');
   return (
     <>
       <div>id: {user.id}</div>
       <div>username: {user.username}</div>
-      <AddComments
-        user={{
-          id: 1,
-        }}
-      />
+      <div>
+        Fotos:
+        {fotos.map((foto) => (
+          <main key={`fotos-div-${foto.id}`}>
+            <img src={foto.url} alt="Foto" width={300} height={300} />
+          </main>
+        ))}
+      </div>
     </>
   );
 }

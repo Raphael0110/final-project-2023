@@ -1,7 +1,7 @@
 import React from 'react';
-import Styles from './samurai.module.scss';
+import Styles from './vikings.module.scss';
 
-export default function SamuraiPage() {
+export default function VikingsPage() {
   return (
     <div className={Styles.container}>
       <h1>Under Construction</h1>

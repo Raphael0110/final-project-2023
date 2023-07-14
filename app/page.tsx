@@ -4,9 +4,6 @@ import styles from './page.module.scss';
 export default function Home() {
   return (
     <main>
-      home page
-      <br />
-      hrello
       <div className={styles.Randomone}>
         <Image
           src="/warden.png"
