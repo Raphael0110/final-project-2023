@@ -1,4 +1,4 @@
-import { setEnvironmentVariables } from './util/config.mjs';
+import { setEnvironmentVariables } from './config.mjs';
 
 setEnvironmentVariables();
 
